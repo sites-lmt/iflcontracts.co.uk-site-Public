@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318 68" role="img" aria-label="IFL Contracts">
+  <defs>
+    <linearGradient id="ifl-canopy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12A66B"/>
+      <stop offset="1" stop-color="#0B7A4C"/>
+    </linearGradient>
+  </defs>
+  <!-- Umbrella mark -->
+  <g transform="translate(6 8)">
+    <!-- canopy -->
+    <path d="M26 2 C11 2 1 13 1 24 L51 24 C51 13 41 2 26 2 Z" fill="url(#ifl-canopy)"/>
+    <!-- scallops -->
+    <path d="M1 24 C6 18 12 18 17 24 C22 18 30 18 35 24 C40 18 46 18 51 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+    <!-- pole -->
+    <rect x="24.5" y="24" width="3" height="26" rx="1.5" fill="#0B7A4C"/>
+    <!-- handle -->
+    <path d="M26 50 C26 56 20 58 18 53" fill="none" stroke="#0B7A4C" stroke-width="3" stroke-linecap="round"/>
+    <!-- ferrule -->
+    <circle cx="26" cy="4" r="2.4" fill="#E0A82E"/>
+  </g>
+  <!-- Wordmark -->
+  <g transform="translate(72 0)">
+    <text x="0" y="34" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-size="30" font-weight="700" fill="#0A4A33" letter-spacing="0.5">IFL</text>
+    <text x="63" y="34" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-size="30" font-weight="600" fill="#12A66B" letter-spacing="0.5">Contracts</text>
+    <text x="1" y="54" font-family="'DM Sans', 'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="600" fill="#5A6B62" letter-spacing="2.55">UMBRELLA COMPANY SOLUTIONS</text>
+  </g>
+</svg>
