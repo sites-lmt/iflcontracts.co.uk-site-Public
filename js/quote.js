@@ -42,12 +42,10 @@
   /* Conversion must never fire twice, whatever happens with retries. */
   var conversionFired = false;
 
-  /* ---------- Not configured yet: swap the form for a call panel ---------- */
-  if (!ENDPOINT) {
-    form.classList.add("lp-hide");
-    fallbackBox.classList.remove("lp-hide");
-    return;
-  }
+  /* ---------- Unconfigured state ----------
+     The form stays visible so the page can be previewed and reviewed.
+     If ENDPOINT is still empty when someone submits, we stop and send them
+     to the phone number rather than showing a false success. */
 
   function showError(message) {
     errorBox.textContent = message;
@@ -100,7 +98,14 @@
 
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending…";
+// Not connected to a form endpoint yet — never fake a success.
+    if (!ENDPOINT) {
+      showError("Please call us on 01784 618027 — we can give you a quote in a couple of minutes.");
+      fallbackBox.classList.remove("lp-hide");
+      return;
+    }
 
+    
     fetch(ENDPOINT, {
       method: "POST",
       body: new FormData(form),
