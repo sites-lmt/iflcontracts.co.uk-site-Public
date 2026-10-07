@@ -118,7 +118,7 @@
       .catch(function () {
         // Do not lose the lead: surface the phone number instead.
         submitBtn.disabled = false;
-        submitBtn.textContent = "Get my quote";
+        submitBtn.textContent = "Get my umbrella quote";
         showError("We could not send that just now. Please call us on 01784 618027 or email info@iflcontracts.co.uk and we will sort it straight away.");
         fallbackBox.classList.remove("lp-hide");
       });
