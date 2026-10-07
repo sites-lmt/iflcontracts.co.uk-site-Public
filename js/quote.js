@@ -145,12 +145,24 @@
   /* Deliberately omits `source`. The inbound route stamps "inbound_form",
      a value excluded from cold-outbound eligibility. Sending our own would
      risk dropping these leads into a cold sequence. */
+  /* `dayRate` is not one of Cortoa's generic LEAD_FIELDS, and the inbound route
+     whitelists against that tuple — an unknown top-level key is dropped without
+     error. So the rate is folded into the message here rather than sent as its
+     own field. Once IFL has a Cortoa tenant with a `dayRate` custom field
+     defined, send it as customFields.dayRate and drop this. */
+  function messageWithRate(form) {
+    var rate = value(form, "dayRate");
+    var msg = value(form, "message");
+    if (!rate) return msg;
+    return "Day rate: " + rate + "\n\n" + msg;
+  }
+
   function cortoaPayload(form) {
     return {
       name: value(form, "name"),
       email: value(form, "email"),
       phone: value(form, "phone"),
-      message: value(form, "message"),
+      message: messageWithRate(form),
       consent: true,
       _t: value(form, "_t"),
       website: value(form, "website"),          // honeypot — must be empty
@@ -171,7 +183,7 @@
 
   function postNotify(form) {
     var body = new FormData();
-    ["name", "email", "phone", "message"].forEach(function (n) {
+    ["name", "email", "phone", "dayRate", "message"].forEach(function (n) {
       body.append(n, value(form, n));
     });
     body.append("_subject", "New umbrella quote request — IFL Contracts");

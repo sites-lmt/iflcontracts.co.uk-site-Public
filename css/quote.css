@@ -201,7 +201,7 @@
   margin-bottom: 18px;
   transition: border-color .18s ease, box-shadow .18s ease;
 }
-.enq-textarea { resize: vertical; min-height: 92px; }
+.enq-textarea { resize: vertical; min-height: 62px; }
 .enq-input:focus,
 .enq-textarea:focus {
   outline: none;
