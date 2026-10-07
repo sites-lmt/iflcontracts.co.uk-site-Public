@@ -30,9 +30,9 @@
   var CORTOA_SLUG = "iflcontracts";
 
   // Interim email notification. Any endpoint that accepts a form POST and
-  // returns JSON — Formspree, e.g. "https://formspree.io/f/abcdwxyz".
+  // returns JSON. Currently Formspree, delivering to lukemturner2020@gmail.com.
   // Leave empty to skip notification entirely.
-  var NOTIFY_ENDPOINT = "";
+  var NOTIFY_ENDPOINT = "https://formspree.io/f/mzederke";
 
   // Google Ads. Label from Goals -> Conversions -> your action -> Tag setup.
   var ADS_ID = "AW-18496074339";
