@@ -1,0 +1,364 @@
+/* ============================================================
+   IFL Contracts — Google Ads landing page styles
+   Loaded after css/style.css, so it reuses the same tokens.
+
+   Deliberately separate from style.css: this page has its own
+   layout rules (no main nav, form-led) and keeping them apart
+   means the rest of the site can't be affected by changes here.
+   ============================================================ */
+
+/* ---------- Minimal header — logo + phone, no nav ---------- */
+.lp-header {
+  background: #fff;
+  border-bottom: 1px solid var(--grey-200);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.lp-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.lp-header img { height: 42px; width: auto; }
+.lp-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--green-dark);
+  white-space: nowrap;
+}
+.lp-call:hover { color: var(--green); text-decoration: none; }
+.lp-call .dot {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex: 0 0 34px;
+}
+
+/* ---------- Hero: copy left, form right ---------- */
+.lp-hero {
+  background: var(--bg-soft);
+  padding: 52px 0 64px;
+  border-bottom: 1px solid var(--grey-200);
+}
+/* Grid areas keep the form high on mobile: copy, then form, then
+   the supporting bullets — rather than the form being pushed down
+   beneath a long list of selling points. */
+.lp-hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "copy  form"
+    "extra form";
+  column-gap: clamp(32px, 5vw, 64px);
+  row-gap: 34px;
+  align-items: start;
+}
+.lp-copy { grid-area: copy; }
+.lp-form-col { grid-area: form; }
+.lp-extra { grid-area: extra; }
+.lp-eyebrow {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  background: var(--green-light);
+  padding: 7px 15px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.lp-hero h1 {
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  line-height: 1.16;
+  margin-bottom: 18px;
+}
+.lp-hero .lp-sub {
+  font-size: 1.08rem;
+  color: var(--grey-700);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 46ch;
+}
+.lp-points { list-style: none; display: grid; gap: 14px; margin-bottom: 30px; }
+.lp-points li {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  font-size: 1rem;
+  color: var(--grey-900);
+}
+.lp-points li::before {
+  content: "✓";
+  flex: 0 0 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+}
+
+/* Trust strip */
+.lp-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding-top: 24px;
+  border-top: 1px solid var(--grey-200);
+}
+.lp-trust span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--green-dark);
+  background: #fff;
+  border: 1px solid var(--green-light);
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+
+/* ---------- The form card ---------- */
+.lp-form-card {
+  background: #fff;
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 34px 32px;
+}
+.lp-form-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+.lp-form-card .lp-form-sub {
+  font-size: 0.95rem;
+  color: var(--grey-700);
+  margin-bottom: 24px;
+}
+
+.enq-field { margin-bottom: 18px; }
+.enq-field label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--grey-900);
+  margin-bottom: 7px;
+}
+.enq-field label .opt {
+  font-weight: 400;
+  color: var(--grey-500);
+  font-family: 'DM Sans', sans-serif;
+}
+.enq-field input,
+.enq-field select,
+.enq-field textarea {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--grey-900);
+  background: #fff;
+  border: 1.5px solid var(--grey-200);
+  border-radius: var(--radius-sm);
+  padding: 13px 15px;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.enq-field textarea { resize: vertical; min-height: 92px; }
+.enq-field input:focus,
+.enq-field select:focus,
+.enq-field textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px var(--green-light);
+}
+.enq-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Consent */
+.enq-consent {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 22px 0;
+  font-size: 0.9rem;
+  color: var(--grey-700);
+  line-height: 1.55;
+}
+.enq-consent input { width: 19px; height: 19px; flex: 0 0 19px; margin-top: 2px; accent-color: var(--green); }
+.enq-consent a { color: var(--green-dark); text-decoration: underline; }
+
+/* Spam trap — hidden from humans, visible to naive bots */
+.enq-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.enq-submit {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 17px 24px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--gold);
+  color: var(--green-deep);
+  cursor: pointer;
+  transition: background .18s ease, transform .14s ease;
+}
+.enq-submit:hover { background: var(--gold-dark); color: #fff; }
+.enq-submit:active { transform: translateY(1px); }
+.enq-submit:disabled { opacity: .65; cursor: default; transform: none; }
+
+.enq-note {
+  font-size: 0.85rem;
+  color: var(--grey-500);
+  text-align: center;
+  margin: 14px 0 0;
+}
+
+/* Validation error */
+.enq-error {
+  background: #fdf0ef;
+  border: 1px solid #f3cdc9;
+  border-left: 4px solid #c0392b;
+  border-radius: var(--radius-sm);
+  padding: 15px 18px;
+  font-size: 0.93rem;
+  color: #8c2318;
+  margin-bottom: 20px;
+}
+
+/* Success state */
+.lp-success { text-align: center; padding: 16px 0 8px; }
+.lp-success .mark {
+  width: 66px; height: 66px;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.lp-success h2 { margin-bottom: 12px; }
+.lp-success p { font-size: 1rem; color: var(--grey-700); }
+.lp-success .lp-success-call {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--grey-200);
+  font-size: 0.95rem;
+  color: var(--grey-700);
+}
+
+/* Unconfigured / failure fallback — never leave a paid click stranded */
+.lp-fallback {
+  background: #fffaf0;
+  border: 1px solid #f2e2c0;
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-sm);
+  padding: 22px 24px;
+}
+.lp-fallback h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.lp-fallback p { font-size: 0.95rem; color: var(--grey-700); margin-bottom: 16px; }
+.lp-fallback a.lp-fallback-call {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+
+/* ---------- Lower sections ---------- */
+.lp-section { padding: 64px 0; }
+.lp-section-alt { background: var(--green-tint); }
+.lp-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.lp-step { padding-top: 22px; border-top: 3px solid var(--green); }
+.lp-step .n {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: var(--green-mid);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.lp-step h3 { font-size: 1.08rem; margin-bottom: 8px; }
+.lp-step p { font-size: 0.95rem; color: var(--grey-700); }
+
+.lp-faq { border-top: 1px solid var(--grey-200); }
+.lp-faq details { border-bottom: 1px solid var(--grey-200); }
+.lp-faq summary {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--grey-900);
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.lp-faq summary::-webkit-details-marker { display: none; }
+.lp-faq summary::after { content: " +"; color: var(--green); font-weight: 700; }
+.lp-faq details[open] summary::after { content: " −"; }
+.lp-faq .lp-faq-body { padding: 0 0 24px; max-width: 72ch; }
+.lp-faq .lp-faq-body p { font-size: 0.98rem; color: var(--grey-700); }
+
+/* ---------- Minimal footer ---------- */
+.lp-footer {
+  background: var(--green-deep);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 42px 0 30px;
+  font-size: 0.9rem;
+}
+.lp-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+.lp-footer a { color: rgba(255, 255, 255, 0.8); }
+.lp-footer a:hover { color: #fff; }
+
+/* Hidden helper */
+.lp-hide { display: none !important; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 940px) {
+  .lp-hero .container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "copy" "form" "extra";
+    row-gap: 32px;
+  }
+  .lp-hero { padding: 40px 0 52px; }
+  .lp-steps { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 620px) {
+  .lp-header img { height: 34px; }
+  .lp-call { font-size: 0.95rem; }
+  .lp-call .dot { display: none; }
+  .lp-form-card { padding: 26px 22px; }
+  .enq-row { grid-template-columns: 1fr; }
+  .lp-section { padding: 48px 0; }
+}

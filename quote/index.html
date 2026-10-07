@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18496074339"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18496074339');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Quote | Umbrella Payroll for Contractors | IFL Contracts</title>
+  <meta name="description" content="Get a free quote for compliant umbrella payroll. Tell us about your contract and we will come back to you within one business day.">
+  <!-- Paid-search landing page: kept out of the organic index so it does not
+       compete with the main site, and so ad traffic is never mixed with organic. -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/quote.css">
+</head>
+<body>
+
+<!-- ===== Minimal header — logo and phone only, no nav ===== -->
+<header class="lp-header">
+  <div class="container">
+    <a href="../" aria-label="IFL Contracts">
+      <img src="../images/logo.svg" alt="IFL Contracts">
+    </a>
+    <a href="tel:+441784618027" class="lp-call">
+      <span class="dot">📞</span> 01784 618027
+    </a>
+  </div>
+</header>
+
+<!-- ===== Hero: copy + form ===== -->
+<section class="lp-hero">
+  <div class="container">
+
+    <div class="lp-copy">
+      <span class="lp-eyebrow">Umbrella payroll for UK contractors</span>
+      <h1>Get your umbrella payroll quote</h1>
+      <p class="lp-sub">Tell us a little about your contract and we will come back within one business day with a clear quote — what you would take home, and exactly what our service costs.</p>
+    </div>
+
+    <div class="lp-form-col">
+      <div class="lp-form-card" id="formCard">
+
+        <!-- Error -->
+        <div class="enq-error lp-hide" id="enqError" role="alert"></div>
+
+        <!-- Success (revealed on a confirmed submission) -->
+        <div class="lp-success lp-hide" id="formSuccess" role="status">
+          <div class="mark">✓</div>
+          <h2>Thanks — we have got it</h2>
+          <p>One of our team will be in touch within one business day with your quote.</p>
+          <div class="lp-success-call">
+            Need an answer sooner?<br>
+            <a href="tel:+441784618027" class="lp-call" style="justify-content:center; margin-top:8px;">01784 618027</a>
+          </div>
+        </div>
+
+        <!-- Fallback (shown if sending fails, or if no endpoint is configured yet) -->
+        <div class="lp-fallback lp-hide" id="formFallback">
+          <h3>Call us instead — it is quicker</h3>
+          <p>We are available now and can give you a figure over the phone in a couple of minutes.</p>
+          <a href="tel:+441784618027" class="lp-fallback-call">01784 618027</a>
+          <p style="margin-bottom:0;"><a href="mailto:info@iflcontracts.co.uk">info@iflcontracts.co.uk</a></p>
+        </div>
+
+        <!-- The form -->
+        <form id="enquiryForm" method="POST" novalidate data-mounted="">
+          <h2>Request your quote</h2>
+          <p class="lp-form-sub">Four details, one step. No obligation and no charge for asking.</p>
+
+          <div class="enq-field">
+            <label for="enqName">Full name</label>
+            <input type="text" id="enqName" name="name" autocomplete="name" required>
+          </div>
+
+          <div class="enq-row">
+            <div class="enq-field">
+              <label for="enqEmail">Email</label>
+              <input type="email" id="enqEmail" name="email" autocomplete="email" inputmode="email" required>
+            </div>
+            <div class="enq-field">
+              <label for="enqPhone">Phone</label>
+              <input type="tel" id="enqPhone" name="phone" autocomplete="tel" inputmode="tel" required>
+            </div>
+          </div>
+
+          <div class="enq-field">
+            <label for="enqInterest">What can we help with?</label>
+            <select id="enqInterest" name="interest" required>
+              <option value="">Please choose…</option>
+              <option>Umbrella payroll — I am contracting</option>
+              <option>Finding contract work</option>
+              <option>Hiring contract staff</option>
+              <option>Something else</option>
+            </select>
+          </div>
+
+          <div class="enq-field">
+            <label for="enqMessage">Anything else we should know? <span class="opt">(optional)</span></label>
+            <textarea id="enqMessage" name="message" rows="3" placeholder="Your day rate, agency, or the contract you are starting…"></textarea>
+          </div>
+
+          <!-- Spam trap: off-screen, out of the tab order -->
+          <div class="enq-hp" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="_t" value="">
+
+          <label class="enq-consent">
+            <input type="checkbox" name="consent" required>
+            <span>I am happy for IFL Contracts to contact me about my enquiry. See our <a href="../privacy.html">privacy policy</a>.</span>
+          </label>
+
+          <button type="submit" class="enq-submit" id="enqSubmit">Get my quote</button>
+          <p class="enq-note">We reply within one business day. No obligation.</p>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="lp-extra">
+      <ul class="lp-points">
+        <li>Invoicing, credit control and PAYE payroll handled for you</li>
+        <li>Same-day payment options once your timesheet is in</li>
+        <li>Compliant umbrella employment — proper payslips, holiday accrual</li>
+        <li>One clear fee, agreed before you commit</li>
+      </ul>
+      <div class="lp-trust">
+        <span>25+ years in recruitment</span>
+        <span>UK-wide coverage</span>
+        <span>UK-based team</span>
+        <span>No setup fees</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== How it works ===== -->
+<section class="lp-section">
+  <div class="container">
+    <div class="lp-steps">
+      <div class="lp-step">
+        <div class="n">STEP 01</div>
+        <h3>Tell us about your contract</h3>
+        <p>Fill in the form, or call us. A day rate and an agency are usually all we need to give you a figure.</p>
+      </div>
+      <div class="lp-step">
+        <div class="n">STEP 02</div>
+        <h3>We come back with a quote</h3>
+        <p>Within one business day you will know what you would take home and what our service costs — in writing.</p>
+      </div>
+      <div class="lp-step">
+        <div class="n">STEP 03</div>
+        <h3>Start being paid properly</h3>
+        <p>Submit your timesheet, and we invoice the agency, chase the money and run your payroll.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Trust ===== -->
+<section class="lp-section lp-section-alt">
+  <div class="container">
+    <div class="lp-copy">
+      <span class="lp-eyebrow">Why contractors use us</span>
+      <h2 style="font-size:1.7rem; margin-bottom:16px;">A compliant umbrella, and someone who answers the phone</h2>
+      <p style="font-size:1.05rem; color:var(--grey-700); max-width:60ch; margin-bottom:0;">We work with over 1,000 UK agencies, so we already know how payments get held up and how to stop that becoming your problem. You are employed and paid through PAYE with income tax and National Insurance deducted at source — no loan schemes, no retention promises that cannot survive employer's National Insurance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="lp-section">
+  <div class="container">
+    <h2 style="font-size:1.6rem; margin-bottom:26px;">Questions contractors ask</h2>
+    <div class="lp-faq">
+      <details>
+        <summary>What does it cost?</summary>
+        <div class="lp-faq-body"><p>One fee, agreed before you commit and confirmed in writing. It is deducted from the assignment value before employer costs and your payroll, and everything is included — invoicing, credit control, payroll, payslips and insurance. Nothing is billed on top.</p></div>
+      </details>
+      <details>
+        <summary>How quickly will I be paid?</summary>
+        <div class="lp-faq-body"><p>Once your approved timesheet is in and funds have cleared from your agency, payroll runs. Same-day payment options are available — ask when you sign up.</p></div>
+      </details>
+      <details>
+        <summary>Can I switch umbrella company mid-contract?</summary>
+        <div class="lp-faq-body"><p>Yes. Nothing stops you changing provider part-way through an assignment. You tell your agency where to send payment, we handle the onboarding, and there is no gap in your pay.</p></div>
+      </details>
+      <details>
+        <summary>Does using an umbrella affect my IR35 position?</summary>
+        <div class="lp-faq-body"><p>No. Your status is decided by the end client and the working practices of the assignment. Because you are paid through PAYE as an employee, the disguised remuneration exposure IR35 targets does not arise. Read more on our <a href="../umbrella.html">umbrella page</a>.</p></div>
+      </details>
+      <details>
+        <summary>Do I need to invoice anyone myself?</summary>
+        <div class="lp-faq-body"><p>No. We raise the invoices on your agency, allocate the payments when they arrive, and chase anything overdue. Submitting a timesheet is the extent of your admin.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer (minimal) ===== -->
+<footer class="lp-footer">
+  <div class="container">
+    <div>© <span id="lpYear">2026</span> IFL Contracts. All rights reserved.</div>
+    <div>
+      <a href="../terms.html">Terms</a> &nbsp;·&nbsp;
+      <a href="../privacy.html">Privacy</a> &nbsp;·&nbsp;
+      <a href="../privacy.html#cookies">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Stamp mount time for the timing check, and set the footer year.
+  (function(){
+    var f = document.getElementById('enquiryForm');
+    if (f) f.dataset.mounted = Math.floor(Date.now() / 1000);
+    var h = document.querySelector('form input[name="_t"]');
+    if (h) h.value = Math.floor(Date.now() / 1000);
+    var y = document.getElementById('lpYear');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+</script>
+<script src="../js/quote.js"></script>
+</body>
+</html>
