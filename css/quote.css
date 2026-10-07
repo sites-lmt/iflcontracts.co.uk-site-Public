@@ -62,7 +62,7 @@
     "copy  form"
     "extra form";
   column-gap: clamp(32px, 5vw, 64px);
-  row-gap: 34px;
+  row-gap: 14px;
   align-items: start;
 }
 /* Scoped to .lp-hero on purpose: an unscoped `grid-area: form` leaks into
@@ -93,7 +93,7 @@
   font-size: 1.08rem;
   color: var(--grey-700);
   line-height: 1.65;
-  margin-bottom: 28px;
+  margin-bottom: 10px;
   max-width: 46ch;
 }
 .lp-points { list-style: none; display: grid; gap: 14px; margin-bottom: 30px; }
@@ -144,7 +144,7 @@
   border: 1px solid var(--grey-200);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
-  padding: 34px 32px;
+  padding: 26px;
 }
 .lp-form-card h2 {
   font-size: 1.3rem;
@@ -153,7 +153,7 @@
 .lp-form-card .lp-form-sub {
   font-size: 0.95rem;
   color: var(--grey-700);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 /* Labels are siblings of their control, and every control is a flat child of the
@@ -180,15 +180,19 @@
   font-weight: 600;
   font-size: 0.88rem;
   color: var(--grey-900);
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 }
 .enq-label .opt {
   font-weight: 400;
   color: var(--grey-500);
   font-family: 'DM Sans', sans-serif;
 }
-.enq-input,
-.enq-textarea {
+/* Scoped through .enq-form deliberately: style.css styles these controls via
+   `form input[type=text]` etc, which is specificity (0,1,2) and outranks a bare
+   `.enq-input` (0,1,0). Without this the padding, border and colours below were
+   silently ignored and the controls kept style.css's 13px/1px/1rem values. */
+.enq-form .enq-input,
+.enq-form .enq-textarea {
   display: block;
   width: 100%;
   font-family: 'DM Sans', sans-serif;
@@ -197,13 +201,13 @@
   background: #fff;
   border: 1.5px solid var(--grey-200);
   border-radius: var(--radius-sm);
-  padding: 13px 15px;
-  margin-bottom: 18px;
+  padding: 12px 14px;
+  margin-bottom: 13px;
   transition: border-color .18s ease, box-shadow .18s ease;
 }
-.enq-textarea { resize: vertical; min-height: 62px; }
-.enq-input:focus,
-.enq-textarea:focus {
+.enq-form .enq-textarea { resize: vertical; min-height: 62px; }
+.enq-form .enq-input:focus,
+.enq-form .enq-textarea:focus {
   outline: none;
   border-color: var(--green);
   box-shadow: 0 0 0 4px var(--green-light);
@@ -214,10 +218,10 @@
    same idea as .wz-input-wrap on Find Umbrella. */
 /* The wrapper carries the spacing, so its height is exactly the input's and the
    £ centres on the field itself — not on the 18px margin below it. */
-.enq-money { position: relative; margin-bottom: 18px; }
+.enq-money { position: relative; margin-bottom: 13px; }
 .enq-money .enq-prefix {
   position: absolute;
-  left: 15px;
+  left: 14px;
   top: 0;
   bottom: 0;
   display: flex;
@@ -227,14 +231,14 @@
   color: var(--grey-700);
   pointer-events: none;
 }
-.enq-money .enq-input { padding-left: 34px; margin-bottom: 0; }
+.enq-form .enq-money .enq-input { padding-left: 32px; margin-bottom: 0; }
 
 /* Consent */
 .enq-consent {
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  margin: 22px 0;
+  margin: 15px 0;
   font-size: 0.9rem;
   color: var(--grey-700);
   line-height: 1.55;
@@ -252,7 +256,7 @@
 }
 
 /* Cloudflare Turnstile host — collapses when no widget is mounted */
-.enq-turnstile { margin: 20px 0 4px; }
+.enq-turnstile { margin: 14px 0 2px; }
 .enq-turnstile:empty { display: none; }
 
 .enq-submit {
@@ -260,7 +264,7 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 1.05rem;
-  padding: 17px 24px;
+  padding: 14px 24px;
   border: 0;
   border-radius: var(--radius-sm);
   background: var(--gold);
@@ -276,7 +280,7 @@
   font-size: 0.85rem;
   color: var(--grey-500);
   text-align: center;
-  margin: 14px 0 0;
+  margin: 10px 0 0;
 }
 
 /* Validation error */
