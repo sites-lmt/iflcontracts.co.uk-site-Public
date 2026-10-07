@@ -209,6 +209,26 @@
   box-shadow: 0 0 0 4px var(--green-light);
 }
 
+/* Currency prefix for the day rate. The £ sits inside the field so the unit is
+   still obvious once a number has been typed and the placeholder has gone —
+   same idea as .wz-input-wrap on Find Umbrella. */
+/* The wrapper carries the spacing, so its height is exactly the input's and the
+   £ centres on the field itself — not on the 18px margin below it. */
+.enq-money { position: relative; margin-bottom: 18px; }
+.enq-money .enq-prefix {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--grey-700);
+  pointer-events: none;
+}
+.enq-money .enq-input { padding-left: 34px; margin-bottom: 0; }
+
 /* Consent */
 .enq-consent {
   display: flex;

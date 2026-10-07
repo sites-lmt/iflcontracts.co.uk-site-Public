@@ -83,7 +83,10 @@
           <input class="enq-input enq-half-r" id="q-phone" name="phone" type="tel" inputmode="tel" placeholder="Your phone" autocomplete="tel" aria-label="Your phone">
 
           <label class="enq-label" for="q-rate">What's your daily rate?</label>
-          <input class="enq-input" id="q-rate" name="dayRate" type="text" inputmode="decimal" placeholder="e.g. 550" autocomplete="off" aria-label="What's your daily rate?" required>
+          <div class="enq-money">
+            <span class="enq-prefix" aria-hidden="true">£</span>
+            <input class="enq-input" id="q-rate" name="dayRate" type="text" inputmode="decimal" placeholder="550" autocomplete="off" aria-label="Your daily rate in pounds" required>
+          </div>
 
           <label class="enq-label" for="q-message">Anything else we should know? <span class="opt">(optional)</span></label>
           <textarea class="enq-textarea" id="q-message" name="message" rows="2" placeholder="Your agency, or the contract you are starting…"></textarea>
@@ -281,7 +284,10 @@
             <input class="enq-input enq-half-r" id="cq-phone" name="phone" type="tel" inputmode="tel" placeholder="Your phone" autocomplete="tel" aria-label="Your phone">
 
             <label class="enq-label" for="cq-rate">What's your daily rate?</label>
-            <input class="enq-input" id="cq-rate" name="dayRate" type="text" inputmode="decimal" placeholder="e.g. 550" autocomplete="off" aria-label="What's your daily rate?" required>
+            <div class="enq-money">
+              <span class="enq-prefix" aria-hidden="true">£</span>
+              <input class="enq-input" id="cq-rate" name="dayRate" type="text" inputmode="decimal" placeholder="550" autocomplete="off" aria-label="Your daily rate in pounds" required>
+            </div>
 
             <label class="enq-label" for="cq-message">Anything else we should know? <span class="opt">(optional)</span></label>
             <textarea class="enq-textarea" id="cq-message" name="message" rows="2" placeholder="Your agency, or the contract you are starting…"></textarea>
