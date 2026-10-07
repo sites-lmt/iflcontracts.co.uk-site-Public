@@ -217,6 +217,10 @@
   overflow: hidden;
 }
 
+/* Cloudflare Turnstile host — collapses when no widget is mounted */
+.enq-turnstile { margin: 20px 0 4px; }
+.enq-turnstile:empty { display: none; }
+
 .enq-submit {
   width: 100%;
   font-family: 'Poppins', sans-serif;
