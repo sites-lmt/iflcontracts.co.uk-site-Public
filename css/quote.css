@@ -65,9 +65,12 @@
   row-gap: 34px;
   align-items: start;
 }
-.lp-copy { grid-area: copy; }
-.lp-form-col { grid-area: form; }
-.lp-extra { grid-area: extra; }
+/* Scoped to .lp-hero on purpose: an unscoped `grid-area: form` leaks into
+   any other grid that reuses these classes and creates a stray implicit
+   track, collapsing the layout. */
+.lp-hero .lp-copy { grid-area: copy; }
+.lp-hero .lp-form-col { grid-area: form; }
+.lp-hero .lp-extra { grid-area: extra; }
 .lp-eyebrow {
   display: inline-block;
   font-family: 'Poppins', sans-serif;
@@ -153,8 +156,10 @@
   margin-bottom: 24px;
 }
 
-.enq-field { margin-bottom: 18px; }
-.enq-field label {
+/* Labels wrap their control (no for/id pair), so the form can be repeated
+   further down the page without creating duplicate ids. */
+.enq-field { display: block; margin-bottom: 18px; }
+.enq-field .enq-label {
   display: block;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -162,7 +167,7 @@
   color: var(--grey-900);
   margin-bottom: 7px;
 }
-.enq-field label .opt {
+.enq-field .enq-label .opt {
   font-weight: 400;
   color: var(--grey-500);
   font-family: 'DM Sans', sans-serif;
@@ -361,4 +366,70 @@
   .lp-form-card { padding: 26px 22px; }
   .enq-row { grid-template-columns: 1fr; }
   .lp-section { padding: 48px 0; }
+}
+
+/* ============================================================
+   Bottom conversion block — form and phone as equal options
+   ============================================================ */
+.lp-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 60px);
+  align-items: start;
+}
+.lp-cta-copy h2 { font-size: clamp(1.5rem, 2.6vw, 1.95rem); margin-bottom: 16px; }
+.lp-cta-copy > p { font-size: 1.05rem; color: var(--grey-700); margin-bottom: 0; }
+
+/* Prominent call panel — a first-class option, not a footnote */
+.lp-call-panel {
+  background: var(--green-deep);
+  border-radius: var(--radius);
+  padding: 32px 30px;
+  margin-top: 32px;
+  box-shadow: var(--shadow-md);
+}
+.lp-call-panel h3 {
+  color: #fff;
+  font-size: 1.12rem;
+  margin-bottom: 14px;
+}
+.lp-call-panel a.lp-call-big {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.6vw, 1.95rem);
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.lp-call-panel a.lp-call-big:hover { color: var(--gold); text-decoration: none; }
+.lp-call-panel .lp-call-note {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 10px 0 0;
+}
+.lp-call-panel ul {
+  list-style: none;
+  display: grid;
+  gap: 11px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+.lp-call-panel li {
+  display: flex;
+  gap: 12px;
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.55;
+}
+.lp-call-panel li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 940px) {
+  .lp-cta-grid { grid-template-columns: 1fr; gap: 34px; }
 }

@@ -48,60 +48,56 @@
     </div>
 
     <div class="lp-form-col">
-      <div class="lp-form-card" id="formCard">
+      <div class="lp-form-card">
 
-        <!-- Error -->
-        <div class="enq-error lp-hide" id="enqError" role="alert"></div>
+        <div class="enq-error lp-hide" role="alert"></div>
 
-        <!-- Success (revealed on a confirmed submission) -->
-        <div class="lp-success lp-hide" id="formSuccess" role="status">
+        <div class="lp-success lp-hide" role="status">
           <div class="mark">✓</div>
           <h2>Thanks — we have got it</h2>
           <p>One of our team will be in touch within one business day with your quote.</p>
           <div class="lp-success-call">
             Need an answer sooner?<br>
-            <a href="tel:+441784618027" class="lp-call" style="justify-content:center; margin-top:8px;">01784 618027</a>
+            <a href="tel:+441784618027" style="font-weight:700; color:var(--green-dark);">01784 618027</a>
           </div>
         </div>
 
-        <!-- Fallback (shown if sending fails, or if no endpoint is configured yet) -->
-        <div class="lp-fallback lp-hide" id="formFallback">
+        <div class="lp-fallback lp-hide">
           <h3>Call us instead — it is quicker</h3>
           <p>We are available now and can give you a figure over the phone in a couple of minutes.</p>
           <a href="tel:+441784618027" class="lp-fallback-call">01784 618027</a>
           <p style="margin-bottom:0;"><a href="mailto:info@iflcontracts.co.uk">info@iflcontracts.co.uk</a></p>
         </div>
 
-        <!-- The form -->
-        <form id="enquiryForm" method="POST" novalidate data-mounted="">
+        <form class="enq-form" method="POST" novalidate>
           <h2>Get your umbrella quote</h2>
           <p class="lp-form-sub">Three details, one step. No obligation, and no charge for asking.</p>
 
-          <div class="enq-field">
-            <label for="enqName">Full name</label>
-            <input type="text" id="enqName" name="name" autocomplete="name" required>
-          </div>
+          <label class="enq-field">
+            <span class="enq-label">Full name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
 
           <div class="enq-row">
-            <div class="enq-field">
-              <label for="enqEmail">Email</label>
-              <input type="email" id="enqEmail" name="email" autocomplete="email" inputmode="email" required>
-            </div>
-            <div class="enq-field">
-              <label for="enqPhone">Phone</label>
-              <input type="tel" id="enqPhone" name="phone" autocomplete="tel" inputmode="tel" required>
-            </div>
+            <label class="enq-field">
+              <span class="enq-label">Email</span>
+              <input type="email" name="email" autocomplete="email" inputmode="email" required>
+            </label>
+            <label class="enq-field">
+              <span class="enq-label">Phone</span>
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required>
+            </label>
           </div>
 
-          <div class="enq-field">
-            <label for="enqMessage">Anything else we should know? <span class="opt">(optional)</span></label>
-            <textarea id="enqMessage" name="message" rows="3" placeholder="Your day rate, agency, or the contract you are starting…"></textarea>
-          </div>
+          <label class="enq-field">
+            <span class="enq-label">Anything else we should know? <span class="opt">(optional)</span></span>
+            <textarea name="message" rows="3" placeholder="Your day rate, agency, or the contract you are starting…"></textarea>
+          </label>
 
-          <!-- Spam trap: off-screen, out of the tab order -->
           <div class="enq-hp" aria-hidden="true">
-            <label for="website">Website</label>
-            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            <label>Website
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </label>
           </div>
           <input type="hidden" name="_t" value="">
 
@@ -110,9 +106,8 @@
             <span>I am happy for IFL Contracts to contact me about my enquiry. See our <a href="../privacy.html">privacy policy</a>.</span>
           </label>
 
-          <button type="submit" class="enq-submit" id="enqSubmit">Get my umbrella quote</button>
+          <button type="submit" class="enq-submit">Get my umbrella quote</button>
           <p class="enq-note">Free and no obligation — a real person replies within one business day.</p>
-          <p class="enq-note" style="margin-top:10px;">Prefer to talk? <a href="tel:+441784618027" style="color:var(--green-dark); font-weight:600;">01784 618027</a></p>
         </form>
 
       </div>
@@ -236,6 +231,98 @@
   </div>
 </section>
 
+<!-- ===== Bottom conversion: form and phone as equal options ===== -->
+<section class="lp-section lp-section-alt" id="get-quote">
+  <div class="container">
+    <div class="lp-cta-grid">
+
+      <div class="lp-cta-copy">
+        <span class="lp-eyebrow">Two ways to start</span>
+        <h2>Get your quote — or just ask what is best for your contract</h2>
+        <p>Free advice on which structure suits your situation: umbrella, limited company or self-assessment. Whether or not you decide we are the right fit, you will come away knowing what you should be doing.</p>
+
+        <div class="lp-call-panel">
+          <h3>Rather talk it through?</h3>
+          <a href="tel:+441784618027" class="lp-call-big">01784 618027</a>
+          <p class="lp-call-note">Speak to someone who knows contractor payroll — not a call centre.</p>
+          <ul>
+            <li>A figure over the phone in a couple of minutes</li>
+            <li>Honest advice on whether an umbrella suits your contract</li>
+            <li>No obligation, and nothing charged for the conversation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lp-form-col">
+        <div class="lp-form-card">
+
+          <div class="enq-error lp-hide" role="alert"></div>
+
+          <div class="lp-success lp-hide" role="status">
+            <div class="mark">✓</div>
+            <h2>Thanks — we have got it</h2>
+            <p>One of our team will be in touch within one business day with your quote.</p>
+            <div class="lp-success-call">
+              Need an answer sooner?<br>
+              <a href="tel:+441784618027" style="font-weight:700; color:var(--green-dark);">01784 618027</a>
+            </div>
+          </div>
+
+          <div class="lp-fallback lp-hide">
+            <h3>Call us instead — it is quicker</h3>
+            <p>We are available now and can give you a figure over the phone in a couple of minutes.</p>
+            <a href="tel:+441784618027" class="lp-fallback-call">01784 618027</a>
+            <p style="margin-bottom:0;"><a href="mailto:info@iflcontracts.co.uk">info@iflcontracts.co.uk</a></p>
+          </div>
+
+          <form class="enq-form" method="POST" novalidate>
+            <h2>Get your quote</h2>
+            <p class="lp-form-sub">Same three details. We reply within one business day.</p>
+
+            <label class="enq-field">
+              <span class="enq-label">Full name</span>
+              <input type="text" name="name" autocomplete="name" required>
+            </label>
+
+            <div class="enq-row">
+              <label class="enq-field">
+                <span class="enq-label">Email</span>
+                <input type="email" name="email" autocomplete="email" inputmode="email" required>
+              </label>
+              <label class="enq-field">
+                <span class="enq-label">Phone</span>
+                <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required>
+              </label>
+            </div>
+
+            <label class="enq-field">
+              <span class="enq-label">Anything else we should know? <span class="opt">(optional)</span></span>
+              <textarea name="message" rows="3" placeholder="Your day rate, agency, or the contract you are starting…"></textarea>
+            </label>
+
+            <div class="enq-hp" aria-hidden="true">
+              <label>Website
+                <input type="text" name="website" tabindex="-1" autocomplete="off">
+              </label>
+            </div>
+            <input type="hidden" name="_t" value="">
+
+            <label class="enq-consent">
+              <input type="checkbox" name="consent" checked required>
+              <span>I am happy for IFL Contracts to contact me about my enquiry. See our <a href="../privacy.html">privacy policy</a>.</span>
+            </label>
+
+            <button type="submit" class="enq-submit">Get my umbrella quote</button>
+            <p class="enq-note">Free and no obligation — a real person replies within one business day.</p>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===== Footer (minimal) ===== -->
 <footer class="lp-footer">
   <div class="container">
@@ -248,17 +335,6 @@
   </div>
 </footer>
 
-<script>
-  // Stamp mount time for the timing check, and set the footer year.
-  (function(){
-    var f = document.getElementById('enquiryForm');
-    if (f) f.dataset.mounted = Math.floor(Date.now() / 1000);
-    var h = document.querySelector('form input[name="_t"]');
-    if (h) h.value = Math.floor(Date.now() / 1000);
-    var y = document.getElementById('lpYear');
-    if (y) y.textContent = new Date().getFullYear();
-  })();
-</script>
 <script src="../js/quote.js"></script>
 </body>
 </html>
