@@ -156,10 +156,24 @@
   margin-bottom: 24px;
 }
 
-/* Labels are siblings of their control, and every control is a flat child of
-   the form. This mirrors the Find Umbrella wizard, which is the version Chrome
-   fills in one action — grouping the fields inside wrapper elements made Chrome
-   treat them as separate sections and fill them one at a time. */
+/* Labels are siblings of their control, and every control is a flat child of the
+   form, so the form can be repeated down the page without duplicate ids.
+
+   The email/phone pair sits side by side via grid on the form itself rather
+   than a wrapper <div> — presentation only, so the DOM stays flat. */
+.enq-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  /* Dense packing, so the email and phone LABELS share one row and their two
+     INPUTS share the row beneath. Without it the default cursor never
+     back-fills, and phone drifts a row down into column 2. */
+  grid-auto-flow: row dense;
+}
+.enq-form > * { grid-column: 1 / -1; }
+.enq-form > .enq-half-l { grid-column: 1; }
+.enq-form > .enq-half-r { grid-column: 2; }
+
 .enq-label {
   display: block;
   font-family: 'Poppins', sans-serif;
