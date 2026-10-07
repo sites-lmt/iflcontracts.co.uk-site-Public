@@ -156,10 +156,11 @@
   margin-bottom: 24px;
 }
 
-/* Labels wrap their control (no for/id pair), so the form can be repeated
-   further down the page without creating duplicate ids. */
-.enq-field { display: block; margin-bottom: 18px; }
-.enq-field .enq-label {
+/* Labels are siblings of their control, and every control is a flat child of
+   the form. This mirrors the Find Umbrella wizard, which is the version Chrome
+   fills in one action — grouping the fields inside wrapper elements made Chrome
+   treat them as separate sections and fill them one at a time. */
+.enq-label {
   display: block;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -167,14 +168,14 @@
   color: var(--grey-900);
   margin-bottom: 7px;
 }
-.enq-field .enq-label .opt {
+.enq-label .opt {
   font-weight: 400;
   color: var(--grey-500);
   font-family: 'DM Sans', sans-serif;
 }
-.enq-field input,
-.enq-field select,
-.enq-field textarea {
+.enq-input,
+.enq-textarea {
+  display: block;
   width: 100%;
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
@@ -183,17 +184,16 @@
   border: 1.5px solid var(--grey-200);
   border-radius: var(--radius-sm);
   padding: 13px 15px;
+  margin-bottom: 18px;
   transition: border-color .18s ease, box-shadow .18s ease;
 }
-.enq-field textarea { resize: vertical; min-height: 92px; }
-.enq-field input:focus,
-.enq-field select:focus,
-.enq-field textarea:focus {
+.enq-textarea { resize: vertical; min-height: 92px; }
+.enq-input:focus,
+.enq-textarea:focus {
   outline: none;
   border-color: var(--green);
   box-shadow: 0 0 0 4px var(--green-light);
 }
-.enq-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
 /* Consent */
 .enq-consent {
@@ -368,7 +368,6 @@
   .lp-call { font-size: 0.95rem; }
   .lp-call .dot { display: none; }
   .lp-form-card { padding: 26px 22px; }
-  .enq-row { grid-template-columns: 1fr; }
   .lp-section { padding: 48px 0; }
 }
 
