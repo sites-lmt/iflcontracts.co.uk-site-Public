@@ -50,60 +50,11 @@
     <div class="lp-form-col">
       <div class="lp-form-card">
 
-        <div class="enq-error lp-hide" role="alert"></div>
-
-        <div class="lp-success lp-hide" role="status">
-          <div class="mark">✓</div>
-          <h2>Thanks — we have got it</h2>
-          <p>One of our team will be in touch within one business day with your quote.</p>
-          <div class="lp-success-call">
-            Need an answer sooner?<br>
-            <a href="tel:+441784618027" style="font-weight:700; color:var(--green-dark);">01784 618027</a>
-          </div>
-        </div>
-
-        <div class="lp-fallback lp-hide">
-          <h3>Call us instead — it is quicker</h3>
-          <p>We are available now and can give you a figure over the phone in a couple of minutes.</p>
-          <a href="tel:+441784618027" class="lp-fallback-call">01784 618027</a>
-          <p style="margin-bottom:0;"><a href="mailto:info@iflcontracts.co.uk">info@iflcontracts.co.uk</a></p>
-        </div>
-
-        <form class="enq-form" method="POST" autocomplete="on" novalidate>
-          <h2>Get your umbrella quote</h2>
-          <p class="lp-form-sub">Three details, one step. No obligation, and no charge for asking.</p>
-
-          <label class="enq-label" for="q-name">Full name</label>
-          <input class="enq-input" id="q-name" name="name" type="text" placeholder="Your name" autocomplete="name" aria-label="Your name" required>
-
-          <label class="enq-label enq-half-l" for="q-email">Email</label>
-          <input class="enq-input enq-half-l" id="q-email" name="email" type="email" inputmode="email" placeholder="Your email" autocomplete="email" aria-label="Your email" required>
-
-          <label class="enq-label enq-half-r" for="q-phone">Phone</label>
-          <input class="enq-input enq-half-r" id="q-phone" name="phone" type="tel" inputmode="tel" placeholder="Your phone" autocomplete="tel" aria-label="Your phone">
-
-          <label class="enq-label" for="q-rate">What's your daily rate?</label>
-          <div class="enq-money">
-            <span class="enq-prefix" aria-hidden="true">£</span>
-            <input class="enq-input" id="q-rate" name="dayRate" type="text" inputmode="decimal" placeholder="550" autocomplete="off" aria-label="Your daily rate in pounds" required>
-          </div>
-
-          <label class="enq-label" for="q-message">Anything else we should know? <span class="opt">(optional)</span></label>
-          <textarea class="enq-textarea" id="q-message" name="message" rows="2" placeholder="Your agency, or the contract you are starting…"></textarea>
-
-          <input class="enq-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <input type="hidden" name="_t" value="">
-
-          <label class="enq-consent">
-            <input type="checkbox" name="consent" checked required>
-            <span>I am happy for IFL Contracts to contact me about my enquiry. See our <a href="../privacy.html">privacy policy</a>.</span>
-          </label>
-
-          <div class="enq-turnstile" data-turnstile></div>
-
-          <button type="submit" class="enq-submit">Get my umbrella quote</button>
-          <p class="enq-note">Free and no obligation — a real person replies within one business day.</p>
-        </form>
+        <!-- Cortoa's own form, mounted by js/cortoa-quote-embed.js.
+        There is deliberately no second form behind it: two forms asking
+        the same questions would be two sets of answers, with no way to
+        tell from the results which one a visitor used. -->
+        <div data-cortoa-form="ifl-contracts-quote" data-min-height="560"></div>
 
       </div>
     </div>
@@ -251,60 +202,11 @@
       <div class="lp-form-col">
         <div class="lp-form-card">
 
-          <div class="enq-error lp-hide" role="alert"></div>
-
-          <div class="lp-success lp-hide" role="status">
-            <div class="mark">✓</div>
-            <h2>Thanks — we have got it</h2>
-            <p>One of our team will be in touch within one business day with your quote.</p>
-            <div class="lp-success-call">
-              Need an answer sooner?<br>
-              <a href="tel:+441784618027" style="font-weight:700; color:var(--green-dark);">01784 618027</a>
-            </div>
-          </div>
-
-          <div class="lp-fallback lp-hide">
-            <h3>Call us instead — it is quicker</h3>
-            <p>We are available now and can give you a figure over the phone in a couple of minutes.</p>
-            <a href="tel:+441784618027" class="lp-fallback-call">01784 618027</a>
-            <p style="margin-bottom:0;"><a href="mailto:info@iflcontracts.co.uk">info@iflcontracts.co.uk</a></p>
-          </div>
-
-          <form class="enq-form" method="POST" autocomplete="on" novalidate>
-            <h2>Get your quote</h2>
-            <p class="lp-form-sub">Same three details. We reply within one business day.</p>
-
-            <label class="enq-label" for="cq-name">Full name</label>
-            <input class="enq-input" id="cq-name" name="name" type="text" placeholder="Your name" autocomplete="name" aria-label="Your name" required>
-
-            <label class="enq-label enq-half-l" for="cq-email">Email</label>
-            <input class="enq-input enq-half-l" id="cq-email" name="email" type="email" inputmode="email" placeholder="Your email" autocomplete="email" aria-label="Your email" required>
-
-            <label class="enq-label enq-half-r" for="cq-phone">Phone</label>
-            <input class="enq-input enq-half-r" id="cq-phone" name="phone" type="tel" inputmode="tel" placeholder="Your phone" autocomplete="tel" aria-label="Your phone">
-
-            <label class="enq-label" for="cq-rate">What's your daily rate?</label>
-            <div class="enq-money">
-              <span class="enq-prefix" aria-hidden="true">£</span>
-              <input class="enq-input" id="cq-rate" name="dayRate" type="text" inputmode="decimal" placeholder="550" autocomplete="off" aria-label="Your daily rate in pounds" required>
-            </div>
-
-            <label class="enq-label" for="cq-message">Anything else we should know? <span class="opt">(optional)</span></label>
-            <textarea class="enq-textarea" id="cq-message" name="message" rows="2" placeholder="Your agency, or the contract you are starting…"></textarea>
-
-            <input class="enq-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <input type="hidden" name="_t" value="">
-
-            <label class="enq-consent">
-              <input type="checkbox" name="consent" checked required>
-              <span>I am happy for IFL Contracts to contact me about my enquiry. See our <a href="../privacy.html">privacy policy</a>.</span>
-            </label>
-
-            <div class="enq-turnstile" data-turnstile></div>
-
-            <button type="submit" class="enq-submit">Get my umbrella quote</button>
-            <p class="enq-note">Free and no obligation — a real person replies within one business day.</p>
-          </form>
+          <!-- Cortoa's own form, mounted by js/cortoa-quote-embed.js.
+          There is deliberately no second form behind it: two forms asking
+          the same questions would be two sets of answers, with no way to
+          tell from the results which one a visitor used. -->
+          <div data-cortoa-form="ifl-contracts-quote" data-min-height="560"></div>
 
         </div>
       </div>
@@ -325,6 +227,7 @@
   </div>
 </footer>
 
+<script src="../js/cortoa-quote-embed.js"></script>
 <script src="../js/quote.js"></script>
 </body>
 </html>
