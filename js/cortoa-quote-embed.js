@@ -107,12 +107,15 @@
       }
 
       // A loaded document is not a rendered form — the frame's first height
-      // message is the moment there is something to look at.
+      // message is the moment there is something to look at. It can report a
+      // height before it has laid anything out, though, and settling on that
+      // would take the spinner away and leave an empty card for a second.
       window.addEventListener("message", function (event) {
         if (event.origin !== CORTOA_BASE) return;
         var data = event.data;
         if (!data || data.type !== "cortoa:form:height") return;
         if (data.slug !== slot.getAttribute("data-cortoa-form")) return;
+        if (!data.height || data.height < 200) return;
         settle();
       });
 
