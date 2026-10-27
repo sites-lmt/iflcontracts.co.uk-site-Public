@@ -2,7 +2,10 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Ads page tag. Reports the visit and feeds remarketing. It does
+       NOT report the enquiry: the form stores the ad click id and Cortoa sends
+       the conversion through Bidsphere, using the customer's own ad account.
+       Firing a conversion here as well would count one lead twice. -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18496074339"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -228,6 +231,9 @@
 </footer>
 
 <script src="../js/cortoa-quote-embed.js"></script>
-<script src="../js/quote.js"></script>
+<script>
+  var yearEl = document.getElementById("lpYear");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
