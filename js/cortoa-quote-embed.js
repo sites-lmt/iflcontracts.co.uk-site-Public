@@ -40,6 +40,11 @@
   var STILL_LOADING_MS = 25000;
   var GIVE_UP_MS = 90000;
 
+  /* When to ask a frame that has not sized itself to load once more. Long
+     enough after the first paint that a slow start is not mistaken for a
+     stalled one, short enough that nobody has given up on the card yet. */
+  var FRAME_RETRY_MS = 6000;
+
   var slots = document.querySelectorAll("[data-cortoa-form]");
   if (!slots.length) return;
 
@@ -125,6 +130,22 @@
         if (!data.height || data.height < 200) return;
         settle();
       });
+
+      /* A frame can measure itself before it has anything to measure — reporting
+         no height and never reporting again, which leaves the card empty while
+         the rest of the page looks fine. Asking the same frame to load a second
+         time, now that the page has settled, brings it back with a real one.
+         Once only: a form that will not size itself twice over is not going to
+         on the third try either, and the phone number is already on screen. */
+      var retried = false;
+      setTimeout(function () {
+        if (settled || retried) return;
+        var frame = slot.querySelector("iframe");
+        if (!frame) return;
+        if (frame.getBoundingClientRect().height >= 200) return;
+        retried = true;
+        frame.src = frame.src;
+      }, FRAME_RETRY_MS);
 
       setTimeout(function () {
         say(
