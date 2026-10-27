@@ -40,11 +40,6 @@
   var STILL_LOADING_MS = 25000;
   var GIVE_UP_MS = 90000;
 
-  /* When to ask a frame that has not sized itself to load once more. Long
-     enough after the first paint that a slow start is not mistaken for a
-     stalled one, short enough that nobody has given up on the card yet. */
-  var FRAME_RETRY_MS = 6000;
-
   var slots = document.querySelectorAll("[data-cortoa-form]");
   if (!slots.length) return;
 
@@ -112,40 +107,14 @@
       }
 
       // A loaded document is not a rendered form — the frame's first height
-      // message is the moment there is something to look at. It can report a
-      // height before it has laid anything out, though, and settling on that
-      // would take the spinner away and leave an empty card for a second.
-      //
-      // The message must come from *this* slot's frame. Both cards on this page
-      // mount the same form, so the slug alone cannot tell them apart: the
-      // lower one's height used to settle the upper one, which then dropped its
-      // minimum height around a frame that never got one.
+      // message is the moment there is something to look at.
       window.addEventListener("message", function (event) {
         if (event.origin !== CORTOA_BASE) return;
         var data = event.data;
         if (!data || data.type !== "cortoa:form:height") return;
         if (data.slug !== slot.getAttribute("data-cortoa-form")) return;
-        var frame = slot.querySelector("iframe");
-        if (!frame || event.source !== frame.contentWindow) return;
-        if (!data.height || data.height < 200) return;
         settle();
       });
-
-      /* A frame can measure itself before it has anything to measure — reporting
-         no height and never reporting again, which leaves the card empty while
-         the rest of the page looks fine. Asking the same frame to load a second
-         time, now that the page has settled, brings it back with a real one.
-         Once only: a form that will not size itself twice over is not going to
-         on the third try either, and the phone number is already on screen. */
-      var retried = false;
-      setTimeout(function () {
-        if (settled || retried) return;
-        var frame = slot.querySelector("iframe");
-        if (!frame) return;
-        if (frame.getBoundingClientRect().height >= 200) return;
-        retried = true;
-        frame.src = frame.src;
-      }, FRAME_RETRY_MS);
 
       setTimeout(function () {
         say(
