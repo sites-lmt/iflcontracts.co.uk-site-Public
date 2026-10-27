@@ -110,11 +110,18 @@
       // message is the moment there is something to look at. It can report a
       // height before it has laid anything out, though, and settling on that
       // would take the spinner away and leave an empty card for a second.
+      //
+      // The message must come from *this* slot's frame. Both cards on this page
+      // mount the same form, so the slug alone cannot tell them apart: the
+      // lower one's height used to settle the upper one, which then dropped its
+      // minimum height around a frame that never got one.
       window.addEventListener("message", function (event) {
         if (event.origin !== CORTOA_BASE) return;
         var data = event.data;
         if (!data || data.type !== "cortoa:form:height") return;
         if (data.slug !== slot.getAttribute("data-cortoa-form")) return;
+        var frame = slot.querySelector("iframe");
+        if (!frame || event.source !== frame.contentWindow) return;
         if (!data.height || data.height < 200) return;
         settle();
       });
