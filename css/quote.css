@@ -64,6 +64,12 @@
   column-gap: clamp(32px, 5vw, 64px);
   row-gap: 14px;
   align-items: start;
+  /* The form column is taller than the copy beside it, and a spanning item's
+     height is shared between the rows it crosses — which used to push the list
+     of promises to the bottom of a very tall column and leave a gap up the
+     middle of the page. `start` keeps the copy together and lets the slack fall
+     off the bottom, where it just reads as space. */
+  align-content: start;
 }
 /* Scoped to .lp-hero on purpose: an unscoped `grid-area: form` leaks into
    any other grid that reuses these classes and creates a stray implicit
