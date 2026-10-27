@@ -58,25 +58,15 @@
 .lp-hero .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "copy  form"
-    "extra form";
+  grid-template-areas: "copy form";
   column-gap: clamp(32px, 5vw, 64px);
-  row-gap: 14px;
   align-items: start;
-  /* The form column is taller than the copy beside it, and a spanning item's
-     height is shared between the rows it crosses — which used to push the list
-     of promises to the bottom of a very tall column and leave a gap up the
-     middle of the page. `start` keeps the copy together and lets the slack fall
-     off the bottom, where it just reads as space. */
-  align-content: start;
 }
 /* Scoped to .lp-hero on purpose: an unscoped `grid-area: form` leaks into
    any other grid that reuses these classes and creates a stray implicit
    track, collapsing the layout. */
 .lp-hero .lp-copy { grid-area: copy; }
 .lp-hero .lp-form-col { grid-area: form; }
-.lp-hero .lp-extra { grid-area: extra; }
 .lp-eyebrow {
   display: inline-block;
   font-family: 'Poppins', sans-serif;
@@ -211,7 +201,7 @@
 @media (max-width: 940px) {
   .lp-hero .container {
     grid-template-columns: 1fr;
-    grid-template-areas: "copy" "form" "extra";
+    grid-template-areas: "copy" "form";
     row-gap: 32px;
   }
   .lp-hero { padding: 40px 0 52px; }
